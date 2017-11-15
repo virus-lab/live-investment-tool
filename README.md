@@ -9,12 +9,25 @@ Live investment simulation system for presentation and demo day based on node.js
 ./live-invest# npm install
 ```
 
-### Database
+### Run database
 ```
 ./live-invest$ mkdir db-local
 ./live-invest$ mongod --dbpath db-local
 ```
-> to reset: ```$ killall -15 mongod```
+> to reset: ```$ killall -15 mongod```  
+
+### Always Run database
+```
+# mongod --fork --logpath mongod.log --dbpath ./live-invest/db-local
+```
+> to reset:
+```
+# mongo
+>> show dbs
+>> use rst_invest
+>> db.dropDatabase()
+>> show dbs
+```
 
 ### Run
 ```
