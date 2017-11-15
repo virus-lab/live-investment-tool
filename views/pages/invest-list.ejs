@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head %>
+        <script>
+            var load = null;
+            var del = null;
+
+            var user_invest1_total = 0;
+            var user_invest2_total = 0;
+            var user_invest3_total = 0;
+            var user_invest4_total = 0;
+            var user_invest5_total = 0;
+
+            $(document).ready(function() {
+                //작성된 메모 목록을 로드합니다.
+                var load = function() {
+                    $.get('/load', function(data) {
+                        $("#invest").empty();
+
+                        $(data).each(function(i) {
+                            var id = this._id;
+
+                            $("#invest").prepend("<div class='item'></div>");
+
+                            $("#invest .item:first").append("<div class='user_name'><b>" + this.user_phone + " | " + this.user_name + "</b> (" + this.date +
+                                ")&nbsp;&nbsp; | <span class='text_button del'>DELETE</span></div>");
+                            $("#invest .item:first").append("<div class='contents " + id + "'>" + this.user_invest1 + " | " + this.user_invest2 + " | " + this.user_invest3 + " | " + this.user_invest4 + " | " + this.user_invest5 + "</div>");
+
+                            //삭제 버튼을 눌렀을 때에 대한 이벤트 콜백함수를 지정합니다.
+                            $("#invest .item:first .del").click(function(evt) {
+                                del(id);
+                            });
+
+                            user_invest1_total = user_invest1_total + this.user_invest1;
+                            user_invest2_total = user_invest2_total + this.user_invest2;
+                            user_invest3_total = user_invest3_total + this.user_invest3;
+                            user_invest4_total = user_invest4_total + this.user_invest4;
+                            user_invest5_total = user_invest5_total + this.user_invest5;
+
+                            console.log("1: " + user_invest1_total);
+                            console.log("2: " + user_invest2_total);
+                            console.log("3: " + user_invest3_total);
+                            console.log("4: " + user_invest4_total);
+                            console.log("5: " + user_invest5_total);
+                        });
+                    });
+                };
+
+                //메모 삭제 요청을 처리하는 부분입니다.
+                var del = function(id) {
+                    var postdata = {
+                        '_id': id
+                    };
+
+                    $.post('/del', postdata, function() {
+                        load();
+                    });
+                };
+
+                load();
+            });
+        </script>
+</head>
+
+<body>
+    <div id='invest'>
+        <div class='item'>
+        </div>
+    </div>
+    <% include ../partials/body_script %>
+</body>
+
+</html>

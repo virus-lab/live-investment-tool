@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head %>
+        <script>
+            var write = null;
+            var break_value = 0;
+
+            var phone_db = [
+                "010-3755-6890",
+                "010-6392-1904",
+                "010-7184-5368",
+                "010-4748-1802",
+                "010-4161-6538",
+                "010-5302-5478",
+                "010-6787-7704",
+                "010-9307-1627",
+                "010-7508-6713",
+                "010-9879-6858",
+                "010-8098-7445",
+                "010-3925-9612",
+                "010-9307-4723",
+                "010-4050-2390",
+                "010-7750-6813"
+            ];
+            
+            $(document).ready(function() {
+                //메모 쓰기 요청을 처리하는 부분입니다.
+                var write = function(contents) {
+                    var postdata = {
+                        'user_name': $("#user_name").val(),
+                        'user_phone': $("#user_phone").val(),
+                        'user_invest1': $("#user_invest1").val(),
+                        'user_invest2': $("#user_invest2").val(),
+                        'user_invest3': $("#user_invest3").val(),
+                        'user_invest4': $("#user_invest4").val(),
+                        'user_invest5': $("#user_invest5").val(),
+                    };
+
+                    $.post('/write', postdata, function() {
+                        // load();
+                    });
+                };
+
+                //쓰기 버튼을 눌렀을 때 쓰기 요청을 발생시키기 위한 부분입니다.
+                $("#write_button").click(function(evt) {
+                    var user_totalinvest = $("#user_invest1").val() * 1 + $("#user_invest2").val() * 1 + $("#user_invest3").val() * 1 + $("#user_invest4").val() * 1 + $("#user_invest5").val() * 1;
+                    if (user_totalinvest != 1000) {
+                        alert("에러! 총 투자 금액은 정확히 1000 이어야 합니다");
+                        alert("현재 투자 금액은 " + user_totalinvest + " 입니다");
+                    } else {
+                        if ($("#user_invest1").val() * 1 < 0 || $("#user_invest2").val() * 1 < 0 || $("#user_invest3").val() * 1 < 0 || $("#user_invest4").val() * 1 < 0 || $("#user_invest5").val() * 1 < 0) {
+                            alert("에러! 음수 값은 입력할 수 없습니다.");
+                        } else {
+                            if (phone_db.indexOf($("#user_phone").val()) < 0) {
+                                alert("등록되지 않은 사용자입니다!");
+                                alert("폰번호를 양식에 정확히 맞게(ex: 010-3755-6890) 입력하시고, 계속 안 될 경우 디렉터에게 문의해주세요");
+                            } else {
+                                $.get('/load', function(data) {
+                                    $(data).each(function(i) {
+                                        if (this.user_phone == $("#user_phone").val()) {
+                                            break_value = 1;
+                                            alert("이미 투표한 사용자입니다");
+                                            alert("중복 투표는 불가합니다");
+                                        }
+                                    });
+                                    if (break_value == 0) {
+                                        alert("투표 완료! " + $("#user_name").val() + " 님 감사합니다");
+                                        write($("#write textarea").val());
+                                    }
+                                });
+                            }
+                        }
+                    }
+                });
+            });
+        </script>
+</head>
+
+<body id="page-top">
+    <header>
+        <div class="header-content">
+            <div id='main' class="header-content-inner">
+                <table id='write'>
+                    <tr>
+                        <th colspan="2">VOTE IT!</th>
+                    </tr>
+                    <tr>
+                        <th>USER NAME</th>
+                        <td><input id='user_name' class='user_name' type='text' placeholder='Type here' /></td>
+                    </tr>
+                    <tr>
+                        <th>USER PHONE</th>
+                        <td><input id='user_phone' class='user_phone' type='text' placeholder='Type here' /></td>
+                    </tr>
+                    <tr>
+                        <th>USER INVEST</th>
+                        <td><input id='user_invest1' class='user_invest' type='text' placeholder='Type here' /></td>
+                        <td><input id='user_invest2' class='user_invest' type='text' placeholder='Type here' /></td>
+                        <td><input id='user_invest3' class='user_invest' type='text' placeholder='Type here' /></td>
+                        <td><input id='user_invest4' class='user_invest' type='text' placeholder='Type here' /></td>
+                        <td><input id='user_invest5' class='user_invest' type='text' placeholder='Type here' /></td>
+                    </tr>
+                    <tr>
+                        <th>USER NOTES</th>
+                        <td>
+                            <textarea placeholder="descriptions about app"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input id='write_button' class="btn btn-primary btn-xl" type='button' value='VOTE!' />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </header>
+    <a href="../invest/list" class="btn btn-success btn-xl" id="go_to_list">See all results</a>
+    <% include ../partials/body_script %>
+</body>
+
+</html>
