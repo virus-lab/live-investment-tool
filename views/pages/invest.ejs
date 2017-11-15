@@ -6,7 +6,14 @@
 </head>
 
 <script>
-    var phone_db = [
+    var login_key = [
+        "virus00000"
+        /*
+        "virus00001",
+        "virus00002",
+        ...
+        위의 형식으로 login_key 를 추가해주세요.
+        */
     ]
 
     var login = null;
@@ -43,9 +50,9 @@
 
         //쓰기 버튼을 눌렀을 때 쓰기 요청을 발생시키기 위한 부분입니다.
         $("#login_button").click(function(evt) {
-            if (phone_db.indexOf($("#user_phone").val()) < 0) {
-                alert("등록되지 않은 사용자입니다!");
-                alert("폰번호를 양식에 정확히 맞게(ex: 010-3755-6890) 입력하시고, 계속 안 될 경우 디렉터에게 문의해주세요");
+            if (login_key.indexOf($("#user_phone").val()) < 0) {
+                alert("등록되지 않은 key 입니다!");
+                alert("운영자에게 받은 key 값을 정확히 입력하세요. (ex. virus00000)");
             } else {
                 $.get('/load', function(data) {
                     $(data).each(function(i) {
@@ -89,17 +96,17 @@
             <div id='main' class="header-content-inner">
                 <table id="table-login">
                     <tr class="tr-mainimage">
-                        <td colspan="2"><img src="images/VIRUS_logo_row_white_none.png"></td>
+                        <td colspan="2"><img src="../images/VIRUS_logo_row_white_none.png"></td>
                     </tr>
                     <tr>
-                        <th width="40px"><img src="images/img_name.png"></th>
+                        <th width="40px"><img src="../images/img_name.png"></th>
                         <td width="200px"><input id='user_name' class='user_name login' type='text' placeholder='이름을 입력하세요' /></td>
                     </tr>
                     <tr style="height: 5px">
                     </tr>
                     <tr>
-                        <th><img src="images/img_phone.png"></th>
-                        <td><input id='user_phone' class='user_phone login' type='text' placeholder='휴대폰 번호를 입력하세요(- 포함)' /></td>
+                        <th><img src="../images/img_phone.png"></th>
+                        <td><input id='user_phone' class='user_phone login' type='text' placeholder='받은 key 값을 입력하세요' /></td>
                     </tr>
                     <tr style="height: 15px">
                     </tr>
@@ -111,23 +118,23 @@
                 </table>
                  <table id="table-invest" class="login-need">
                     <tr class="tr-invest">
-                        <th width="160px">1. FITEEN</th>
+                        <th width="160px">팀 1</th>
                         <td width="80px"><input id='user_invest1' class='user_invest' type='text' placeholder='투자금(만원)' /></td>
                     </tr>
                     <tr class="tr-invest">
-                        <th>2. 피엠(PM)</th>
+                        <th>팀 2</th>
                         <td><input id='user_invest2' class='user_invest' type='text' placeholder='투자금(만원)' /></td>
                     </tr>
                     <tr class="tr-invest">
-                        <th>3. 플라시보미트</th>
+                        <th>팀 3</th>
                         <td><input id='user_invest3' class='user_invest' type='text' placeholder='투자금(만원)' /></td>
                     </tr>
                     <tr class="tr-invest">
-                        <th>4. PEOPET</th>
+                        <th>팀 4</th>
                         <td><input id='user_invest4' class='user_invest' type='text' placeholder='투자금(만원)' /></td>
                     </tr>
                     <tr class="tr-invest">
-                        <th>5. 스토리다이닝</th>
+                        <th>팀 5</th>
                         <td><input id='user_invest5' class='user_invest' type='text' placeholder='투자금(만원)' /></td>
                     </tr>
                     <tr style="height: 15px">
@@ -152,10 +159,10 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">X2O공모전 모의 투자 시스템 가이드</h4>
+                    <h4 class="modal-title" id="myModalLabel">실시간 모의 투자 시스템</h4>
                 </div>
                 <div class="modal-body">
-                    <p>1. 이름과 휴대폰 번호를 <b>양식에 맞게 정확히</b> 입력 후, 로그인 해주세요.</p>
+                    <p>1. 이름과 디렉터로부터 받은 key 값을 <b>정확히</b> 입력 후, 로그인 해주세요.</p>
                     <p>정확히 입력하였는데도 "등록되지 않은 사용자입니다!" 라는 메세지가 나오면 디렉터에게 알려주세요!</p>
                     <p>2. 로그인 완료 시 개인 당 <b>1000만원</b>의 투자금이 주어집니다.</p>
                     <p>1000만원을 5팀에 <b>모두</b> 분배하신 후, 투자 버튼을 눌러주세요.</p>
@@ -163,8 +170,7 @@
                     <p>3. 실시간 결과는 <a href="/invest/result">다음의 링크</a>에서 확인하실 수 있습니다.</p>
                     <p>4. 기타 문제 발생 시 디렉터에게 알려주세요!</p>
                     <hr/>
-                    <p>온라인 투표는 최종 심사 결과에 20% 반영됩니다.</p>
-                    <p>본 시스템의 코드는 행사 직후 <a href="http://parkjunhyuk.com/invest">다음의 링크</a>에 공개할 예정입니다.</p>
+                    <p>본 프로그램은 청년 창업 문화 확산을 위해 <a href="http://virus.network">바이러스네트워크</a>가 제작하였습니다.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">확인</button>
