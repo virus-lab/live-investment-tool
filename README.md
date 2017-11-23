@@ -1,4 +1,4 @@
-# live-invest
+# live-investment-tool
 Live investment simulation system for presentation and demo day based on node.js and mongodb.
 
 ## Usage
