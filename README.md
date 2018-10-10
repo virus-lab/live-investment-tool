@@ -44,9 +44,18 @@ Live investment simulation system for presentation and demo day based on node.js
 > to check: ```# forever list```  
 > to stop: ```# forever stop /root/live-investment-tool/bin/www```
 
+## install
+
+```
+~/workspace$ sudo mongod --fork --logpath mongod.log --dbpath ./live-investment-tool/db
+$ sudo killall -u mongodb
+
+```
+
 ## Dependencies
 - nodejs
 - express
 - mongodb
 - mongoose
 - forever
+- mongodb-server
