@@ -55,8 +55,11 @@ http://invest.virus.network/
 
 #### 강원 스타트업 파티
 
-총 200개, 모든 `key` 는 `virus` 후에 `5자리 수`` 가 오는 형식입니다.
+- 총 200개
+- 모든 `key` 는 `virus` 후에 `5자리 수` 가 오는 형식입니다.
+- 양 쪽에 "" 와 , 는 무시하세요.
 
+```
 "virus00000",
 "virus83683",
 "virus93670",
@@ -258,3 +261,4 @@ http://invest.virus.network/
 "virus38777",
 "virus24144",
 "virus36940"
+```
