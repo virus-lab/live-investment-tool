@@ -71,7 +71,7 @@ $ sudo apt-get install mongodb-server
 
 ```
 $ npm install
-~/workspace/live-investment-tool$ npm start
+~/workspace/live-investment-tool$ sudo npm start
 ```
 
 > `~/workspace/live-investment-tool$ forever --minUptime 5 --spinSleepTime 5 start ./bin/www`
