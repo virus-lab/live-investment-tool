@@ -51,21 +51,30 @@ Live investment simulation system for presentation and demo day based on node.js
 ## Settings for Lightsail
 
 ```
-$ sudo apt get install mongodb-server
+~/workspace$ git clone https://github.com/virus-lab/live-investment-tool
+```
+
+```
+$ sudo apt-get install mongodb-server
+~/workspace/live-investment-tool$ mkdir db
 ~/workspace$ sudo mongod --fork --logpath mongod.log --dbpath ./live-investment-tool/db
 ```
 
-```
-$ sudo killall -u mongodb
-```
+> `$ sudo killall -u mongodb`
 
 ```
+~$ cd /opt/bitnami
+/opt/bitnami$ sudo ./ctlscript.sh stop apache
+```
+
+> Add 'Custom - TCP - 3000' on lightsail - networking
+
+```
+$ npm install
 ~/workspace/live-investment-tool$ npm start
 ```
 
-```
-~/workspace/live-investment-tool$ forever --minUptime 5 --spinSleepTime 5 start ./bin/www
-```
+> `~/workspace/live-investment-tool$ forever --minUptime 5 --spinSleepTime 5 start ./bin/www`
 
 ## 사용법
 
