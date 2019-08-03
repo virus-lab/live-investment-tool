@@ -14,6 +14,7 @@
             var user_invest5_total = 0;
             var user_invest6_total = 0;
             var user_invest7_total = 0;
+            var user_invest8_total = 0;
 
             $(document).ready(function() {
                 //작성된 메모 목록을 로드합니다.
@@ -28,7 +29,7 @@
 
                             $("#invest .item:first").append("<div class='user_name'><b>" + this.user_phone + " | " + this.user_name + "</b> (" + this.date +
                                 ")&nbsp;&nbsp; | <span class='text_button del'>DELETE</span></div>");
-                            $("#invest .item:first").append("<div class='contents " + id + "'>" + this.user_invest1 + " | " + this.user_invest2 + " | " + this.user_invest3 + " | " + this.user_invest4 + " | " + this.user_invest5 + " | " + this.user_invest6 + " | " + this.user_invest7 + "</div>");
+                            $("#invest .item:first").append("<div class='contents " + id + "'>" + this.user_invest1 + " | " + this.user_invest2 + " | " + this.user_invest3 + " | " + this.user_invest4 + " | " + this.user_invest5 + " | " + this.user_invest6 + " | " + this.user_invest7 + " | " + this.user_invest8 + "</div>");
 
                             //삭제 버튼을 눌렀을 때에 대한 이벤트 콜백함수를 지정합니다.
                             $("#invest .item:first .del").click(function(evt) {
@@ -42,6 +43,7 @@
                             user_invest5_total = user_invest5_total + this.user_invest5;
                             user_invest6_total = user_invest6_total + this.user_invest6;
                             user_invest7_total = user_invest7_total + this.user_invest7;
+                            user_invest8_total = user_invest8_total + this.user_invest8;
 
                             console.log("1: " + user_invest1_total);
                             console.log("2: " + user_invest2_total);
@@ -50,6 +52,7 @@
                             console.log("5: " + user_invest5_total);
                             console.log("6: " + user_invest6_total);
                             console.log("7: " + user_invest7_total);
+                            console.log("8: " + user_invest8_total);
                         });
                     });
                 };

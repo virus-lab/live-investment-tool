@@ -14,6 +14,7 @@
             var user_invest5_total = 0;
             var user_invest6_total = 0;
             var user_invest7_total = 0;
+            var user_invest8_total = 0;
 
             var user_invest_number = 0;
 
@@ -30,6 +31,7 @@
                         user_invest5_total = user_invest5_total + this.user_invest5;
                         user_invest6_total = user_invest6_total + this.user_invest6;
                         user_invest7_total = user_invest7_total + this.user_invest7;
+                        user_invest8_total = user_invest8_total + this.user_invest8;
                         user_invest_number = user_invest_number + 1;
                     });
 
@@ -38,10 +40,10 @@
                     var myChart = new Chart(ctx, {
                         type: 'bar',
                         data: {
-                            labels: ["팀 1", "팀 2", "팀 3", "팀 4", "팀 5", "팀 6", "팀 7"],
+                            labels: ["팀 1", "팀 2", "팀 3", "팀 4", "팀 5", "팀 6", "팀 7", "팀 8"],
                             datasets: [{
                                 label: '# of Votes',
-                                data: [user_invest1_total, user_invest2_total, user_invest3_total, user_invest4_total, user_invest5_total, user_invest6_total, user_invest7_total],
+                                data: [user_invest1_total, user_invest2_total, user_invest3_total, user_invest4_total, user_invest5_total, user_invest6_total, user_invest7_total, user_invest8_total],
                                 backgroundColor: [
                                     'rgba(255, 99, 132, 0.2)',
                                     'rgba(54, 162, 235, 0.2)',

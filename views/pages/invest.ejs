@@ -242,7 +242,8 @@
                 'user_invest4': $("#user_invest4").val(),
                 'user_invest5': $("#user_invest5").val(),
                 'user_invest6': $("#user_invest6").val(),
-                'user_invest7': $("#user_invest7").val()
+                'user_invest7': $("#user_invest7").val(),
+                'user_invest8': $("#user_invest8").val()
             };
 
             $.post('/invest', postdata, function() {
@@ -271,12 +272,12 @@
                         $(".login").prop('disabled', true);
 
                         $("#invest_button").click(function(evt) {
-                            var user_totalinvest = $("#user_invest1").val() * 1 + $("#user_invest2").val() * 1 + $("#user_invest3").val() * 1 + $("#user_invest4").val() * 1 + $("#user_invest5").val() * 1 + $("#user_invest6").val() * 1 + $("#user_invest7").val() * 1;
+                            var user_totalinvest = $("#user_invest1").val() * 1 + $("#user_invest2").val() * 1 + $("#user_invest3").val() * 1 + $("#user_invest4").val() * 1 + $("#user_invest5").val() * 1 + $("#user_invest6").val() * 1 + $("#user_invest7").val() * 1 + $("#user_invest8").val() * 1;
                             if (user_totalinvest != 1000) {
                                 alert("에러! 총 투자 금액은 정확히 1000 이어야 합니다");
                                 alert("현재 투자 금액은 " + user_totalinvest + " 입니다");
                             } else {
-                                if ($("#user_invest1").val() * 1 < 0 || $("#user_invest2").val() * 1 < 0 || $("#user_invest3").val() * 1 < 0 || $("#user_invest4").val() * 1 < 0 || $("#user_invest5").val() * 1 < 0 || $("#user_invest6").val() * 1 < 0 || $("user_invest7").val() * 1 < 0) {
+                                if ($("#user_invest1").val() * 1 < 0 || $("#user_invest2").val() * 1 < 0 || $("#user_invest3").val() * 1 < 0 || $("#user_invest4").val() * 1 < 0 || $("#user_invest5").val() * 1 < 0 || $("#user_invest6").val() * 1 < 0 || $("user_invest7").val() * 1 < 0 || $("user_invest8").val() * 1 < 0) {
                                     alert("에러! 음수 값은 입력할 수 없습니다.");
                                 } else {
                                     write();
@@ -320,32 +321,36 @@
                 </table>
                  <table id="table-invest" class="login-need">
                     <tr class="tr-invest">
-                        <th width="160px">팀 1: Invest4.0</th>
+                        <th width="160px">팀 1: #</th>
                         <td width="80px"><input id='user_invest1' class='user_invest' type='text' placeholder='투자금(만원)' /></td>
                     </tr>
                     <tr class="tr-invest">
-                        <th>팀 2: The spot</th>
+                        <th>팀 2: ##</th>
                         <td><input id='user_invest2' class='user_invest' type='text' placeholder='투자금(만원)' /></td>
                     </tr>
                     <tr class="tr-invest">
-                        <th>팀 3: TD LAB</th>
+                        <th>팀 3: ###</th>
                         <td><input id='user_invest3' class='user_invest' type='text' placeholder='투자금(만원)' /></td>
                     </tr>
                     <tr class="tr-invest">
-                        <th>팀 4: 렌즈웨어</th>
+                        <th>팀 4: ####</th>
                         <td><input id='user_invest4' class='user_invest' type='text' placeholder='투자금(만원)' /></td>
                     </tr>
                     <tr class="tr-invest">
-                        <th>팀 5: CO-ANI</th>
+                        <th>팀 5: #####</th>
                         <td><input id='user_invest5' class='user_invest' type='text' placeholder='투자금(만원)' /></td>
                     </tr>
                     <tr class="tr-invest">
-                        <th>팀 6: KC</th>
+                        <th>팀 6: ######</th>
                         <td><input id='user_invest6' class='user_invest' type='text' placeholder='투자금(만원)' /></td>
                     </tr>
                     <tr class="tr-invest">
-                        <th>팀 7: 프리마카</th>
+                        <th>팀 7: #######</th>
                         <td><input id='user_invest7' class='user_invest' type='text' placeholder='투자금(만원)' /></td>
+                    </tr>
+                    <tr class="tr-invest">
+                        <th>팀 8: ########</th>
+                        <td><input id='user_invest8' class='user_invest' type='text' placeholder='투자금(만원)' /></td>
                     </tr>
                     <tr style="height: 15px">
                     </tr>
@@ -375,7 +380,7 @@
                     <p>1. 이름과 디렉터로부터 받은 key 값을 <b>정확히</b> 입력 후, 로그인 해주세요.</p>
                     <p>정확히 입력하였는데도 "등록되지 않은 사용자입니다!" 라는 메세지가 나오면 디렉터에게 알려주세요!</p>
                     <p>2. 로그인 완료 시 개인 당 <b>1000만원</b>의 투자금이 주어집니다.</p>
-                    <p>1000만원을 7팀에 <b>모두</b> 분배하신 후, 투자 버튼을 눌러주세요.</p>
+                    <p>1000만원을 8팀에 <b>모두</b> 분배하신 후, 투자 버튼을 눌러주세요.</p>
                     <p>투자금의 단위는 <b>만원</b>입니다. 즉, 투자금의 총합이 <b>정확히 1000</b>이 되어야 합니다.</p>
                     <p>3. 실시간 결과는 <a href="/result">다음의 링크</a>에서 확인하실 수 있습니다.</p>
                     <p>4. 기타 문제 발생 시 디렉터에게 알려주세요!</p>
