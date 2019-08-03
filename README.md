@@ -4,13 +4,25 @@ Live investment simulation system for presentation and demo day based on node.js
 ## Guide
 [Guide for non-developer](https://github.com/virus-lab/live-investment-tool/blob/master/GUIDE.md)
 
-## Usage
+## Install
+
+#### mongodb
+```
+# brew install mongodb
+```
 
 #### Settings
 ```
 # git clone https://github.com/virus-dev/live-investment-tool
 ./live-investment-tool# npm install
 ```
+
+## Usage
+
+#### Set keys
+
+1. duplicate `public/key_sample.js` as `public/key.js`
+2. add keys in `public/key.js`
 
 #### Run database
 ```
