@@ -14,7 +14,7 @@
     var break_value = 0;
 
     $(document).ready(function() {
-        var user_name = '';
+        var key_name = '';
 
         $("#modal-open").click();
         $(".login-need").hide();
@@ -65,7 +65,8 @@
                     key_name = login_name[key_index];
 
                     if (break_value == 0) {
-                        alert("로그인 성공!");
+                        alert(key_name + "님, 안녕하세요!!");
+
                         $(".login-need").show();
                         $(".login").prop('disabled', true);
 
@@ -109,14 +110,8 @@
                         <td colspan="2"><img src="../images/VIRUS_logo_row_white_none.png"></td>
                     </tr>
                     <tr>
-                        <th width="40px"><img src="../images/img_name.png"></th>
-                        <td width="200px"><input id='user_name' class='user_name login' type='text' placeholder='이름을 입력하세요' /></td>
-                    </tr>
-                    <tr style="height: 5px">
-                    </tr>
-                    <tr>
                         <th><img src="../images/img_phone.png"></th>
-                        <td><input id='user_phone' class='user_phone login' type='text' placeholder='받은 key 값을 입력하세요' /></td>
+                        <td><input id='user_phone' class='user_phone login' type='text' placeholder='전화번호를 입력하세요' /></td>
                     </tr>
                     <tr style="height: 15px">
                     </tr>
@@ -184,12 +179,13 @@
                     <h4 class="modal-title" id="myModalLabel">실시간 모의 투자 시스템</h4>
                 </div>
                 <div class="modal-body">
-                    <p>1. 이름과 디렉터로부터 받은 key 값을 <b>정확히</b> 입력 후, 로그인 해주세요.</p>
+                    <p>1. 본인의 전화번호를 <b>숫자만</b> 입력 후, 로그인 해주세요.</p>
+                    <p>ex. <span style="color: #0000ff">01037556890(YES)</span> <span style="color: #ff0000">010-3755-6890(NO)</span></p>
                     <p>정확히 입력하였는데도 "등록되지 않은 사용자입니다!" 라는 메세지가 나오면 디렉터에게 알려주세요!</p>
                     <p>2. 로그인 완료 시 개인 당 <b>1000만원</b>의 투자금이 주어집니다.</p>
                     <p>1000만원을 8팀에 <b>모두</b> 분배하신 후, 투자 버튼을 눌러주세요.</p>
                     <p>투자금의 단위는 <b>만원</b>입니다. 즉, 투자금의 총합이 <b>정확히 1000</b>이 되어야 합니다.</p>
-                    <p style="color: #ff0000;"><i>공정한 투표를 위해, 한 팀에 <b>400만원</b> 보다 큰 금액을 투자할 수 없습니다.</i></p>
+                    <p style="color: #ff00ff;"><i>공정한 투표를 위해, 한 팀에 <b>400만원</b> 보다 큰 금액을 투자할 수 없습니다.</i></p>
                     <p>3. 실시간 결과는 <a href="/result">다음의 링크</a>에서 확인하실 수 있습니다.</p>
                     <p>4. 기타 문제 발생 시 디렉터에게 알려주세요!</p>
                     <hr/>
