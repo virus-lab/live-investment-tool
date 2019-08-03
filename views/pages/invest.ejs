@@ -8,13 +8,15 @@
 
 <script>
     login_key = key.login_key;
+    login_name = key.login_name;
 
     var login = null;
     var break_value = 0;
 
     $(document).ready(function() {
-        $("#modal-open").click();
+        var user_name = '';
 
+        $("#modal-open").click();
         $(".login-need").hide();
 
         //메모 쓰기 요청을 처리하는 부분입니다.
@@ -27,7 +29,7 @@
 
         var write = function(contents) {
             var postdata = {
-                'user_name': $("#user_name").val(),
+                'user_name': key_name,
                 'user_phone': $("#user_phone").val(),
                 'user_invest1': $("#user_invest1").val(),
                 'user_invest2': $("#user_invest2").val(),
@@ -48,7 +50,6 @@
         $("#login_button").click(function(evt) {
             if (login_key.indexOf($("#user_phone").val()) < 0) {
                 alert("등록되지 않은 key 입니다!");
-                alert("운영자에게 받은 key 값을 정확히 입력하세요. (ex. virus00000)");
             } else {
                 $.get('/load', function(data) {
                     $(data).each(function(i) {
@@ -59,6 +60,10 @@
                             location.reload();
                         }
                     });
+
+                    key_index = login_key.indexOf($("#user_phone").val());
+                    key_name = login_name[key_index];
+
                     if (break_value == 0) {
                         alert("로그인 성공!");
                         $(".login-need").show();
@@ -84,7 +89,7 @@
                                 alert("에러! 한 팀에 400 보다 큰 금액을 투자할 수 없습니다.");
                             } else {
                                 write();
-                                alert("투표 완료! " + $("#user_name").val() + " 님 감사합니다");
+                                alert("투표 완료! " + key_name + " 님 감사합니다");
                                 location.reload();
                             }
                         });
