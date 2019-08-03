@@ -272,12 +272,21 @@
                         $(".login").prop('disabled', true);
 
                         $("#invest_button").click(function(evt) {
-                            var user_totalinvest = $("#user_invest1").val() * 1 + $("#user_invest2").val() * 1 + $("#user_invest3").val() * 1 + $("#user_invest4").val() * 1 + $("#user_invest5").val() * 1 + $("#user_invest6").val() * 1 + $("#user_invest7").val() * 1 + $("#user_invest8").val() * 1;
+                            var invest1 = $("#user_invest1").val() * 1;
+                            var invest2 = $("#user_invest2").val() * 1;
+                            var invest3 = $("#user_invest3").val() * 1;
+                            var invest4 = $("#user_invest4").val() * 1;
+                            var invest5 = $("#user_invest5").val() * 1;
+                            var invest6 = $("#user_invest6").val() * 1;
+                            var invest7 = $("#user_invest7").val() * 1;
+                            var invest8 = $("#user_invest8").val() * 1;
+
+                            var user_totalinvest = invest1 + invest2 + invest3 + invest4 + invest5 + invest6 + invest7 + invest8;
                             if (user_totalinvest != 1000) {
                                 alert("에러! 총 투자 금액은 정확히 1000 이어야 합니다");
                                 alert("현재 투자 금액은 " + user_totalinvest + " 입니다");
                             } else {
-                                if ($("#user_invest1").val() * 1 < 0 || $("#user_invest2").val() * 1 < 0 || $("#user_invest3").val() * 1 < 0 || $("#user_invest4").val() * 1 < 0 || $("#user_invest5").val() * 1 < 0 || $("#user_invest6").val() * 1 < 0 || $("user_invest7").val() * 1 < 0 || $("user_invest8").val() * 1 < 0) {
+                                if (invest1 < 0 || invest2 < 0 || invest3 < 0 || invest4 < 0 || invest5 < 0 || invest6 < 0 || invest7 < 0 || invest8 < 0) {
                                     alert("에러! 음수 값은 입력할 수 없습니다.");
                                 } else {
                                     write();
