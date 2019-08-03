@@ -285,14 +285,14 @@
                             if (user_totalinvest != 1000) {
                                 alert("에러! 총 투자 금액은 정확히 1000 이어야 합니다");
                                 alert("현재 투자 금액은 " + user_totalinvest + " 입니다");
+                            } else if (invest1 < 0 || invest2 < 0 || invest3 < 0 || invest4 < 0 || invest5 < 0 || invest6 < 0 || invest7 < 0 || invest8 < 0) {
+                                alert("에러! 음수 값은 입력할 수 없습니다.");
+                            } else if (Math.max(invest1, invest2, invest3, invest4, invest5, invest6, invest7, invest8) > 400) {
+                                alert("에러! 한 팀에 400 보다 큰 금액을 투자할 수 없습니다.");
                             } else {
-                                if (invest1 < 0 || invest2 < 0 || invest3 < 0 || invest4 < 0 || invest5 < 0 || invest6 < 0 || invest7 < 0 || invest8 < 0) {
-                                    alert("에러! 음수 값은 입력할 수 없습니다.");
-                                } else {
-                                    write();
-                                    alert("투표 완료! " + $("#user_name").val() + " 님 감사합니다");
-                                    location.reload();
-                                }
+                                write();
+                                alert("투표 완료! " + $("#user_name").val() + " 님 감사합니다");
+                                location.reload();
                             }
                         });
                     }
@@ -391,6 +391,7 @@
                     <p>2. 로그인 완료 시 개인 당 <b>1000만원</b>의 투자금이 주어집니다.</p>
                     <p>1000만원을 8팀에 <b>모두</b> 분배하신 후, 투자 버튼을 눌러주세요.</p>
                     <p>투자금의 단위는 <b>만원</b>입니다. 즉, 투자금의 총합이 <b>정확히 1000</b>이 되어야 합니다.</p>
+                    <p style="color: #ff0000;"><i>공정한 투표를 위해, 한 팀에 <b>400만원</b> 보다 큰 금액을 투자할 수 없습니다.</i></p>
                     <p>3. 실시간 결과는 <a href="/result">다음의 링크</a>에서 확인하실 수 있습니다.</p>
                     <p>4. 기타 문제 발생 시 디렉터에게 알려주세요!</p>
                     <hr/>
