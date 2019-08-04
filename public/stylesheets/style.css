@@ -1,29 +1,29 @@
 input, textarea {
   outline-style:none;
   width: 100%;
-  background-color: #555555;
+  background-color: #ededed;
   border: none;
   height: 40px;
   margin: 0;
   padding: 0;
-  text-indent: 10px;
 }
 
 input[type=text] {
-  color: #aaaaaa;
+  color: #383838;
+  text-indent: 10px;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: #aaaaaa;
+  color: #383838;
 }
 ::-moz-placeholder { /* Firefox 19+ */
-  color: #aaaaaa;
+  color: #383838;
 }
 :-ms-input-placeholder { /* IE 10+ */
-  color: #aaaaaa;
+  color: #383838;
 }
 :-moz-placeholder { /* Firefox 18- */
-  color: #aaaaaa;
+  color: #383838;
 }
 
 table {
@@ -63,12 +63,12 @@ table {
 }
 
 #table-login .tr-mainimage img{
-  width: 160px;
-  margin-left: 40px;
+  width: 240px;
+  margin-left: 0px;
 }
 
 #table-invest {
-  top: 260px;
+  top: 265px;
 }
 
 #table-invest th, #table-invest td, {
@@ -76,8 +76,8 @@ table {
 }
 
 #table-invest th {
-  color: #cccccc;
-  background-color: #666666;
+  color: #ededed;
+  background-color: #383838;
   text-indent: 10px;
 }
 
