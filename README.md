@@ -74,7 +74,7 @@ Live investment simulation system for presentation and demo day based on node.js
 
 #### Install/Run database
 
-```
+```bash
 $ sudo apt-get install mongodb-server
 ~/workspace/live-investment-tool$ mkdir db
 ~/workspace$ sudo mongod --fork --logpath mongod.log --dbpath ./live-investment-tool/db
@@ -93,13 +93,15 @@ $ sudo apt-get install mongodb-server
 
 #### Run
 
-```
+```bash
 ~/workspace/live-investment-tool$ sudo npm start
 ```
 
-> `~/workspace/live-investment-tool$ sudo forever --minUptime 5 --spinSleepTime 5 start ./bin/www`
-> `~/workspace/live-investment-tool$ sudo forever list`
-> `~/workspace/live-investment-tool$ sudo forever stop /root/live-investment-tool/bin/www`
+```bash
+~/workspace/live-investment-tool$ sudo forever --minUptime 5 --spinSleepTime 5 start ./bin/www
+~/workspace/live-investment-tool$ sudo forever list
+~/workspace/live-investment-tool$ sudo forever stop ./bin/www
+```
 
 #### Guide
 
